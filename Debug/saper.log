@@ -1,0 +1,5 @@
+﻿  saper.cpp
+C:\Users\DARYA\Desktop\saper\saper.cpp(8,25): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\DARYA\Desktop\saper\saper.cpp(8,55): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\DARYA\Desktop\saper\saper.cpp(22,24): warning C4101: numbombs: неиспользованная локальная переменная
+  saper.vcxproj -> C:\Users\DARYA\Desktop\saper\Debug\saper.exe
