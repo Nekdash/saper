@@ -90,7 +90,13 @@ void set_level(int level){
 }
 
 void title(){
-    // set up the pistuer
+    // set up the picture
+    // handle mouse events
+    // call other windows
+}
+
+void settings() {
+    vector<int> levels;
 }
 
 int main()
