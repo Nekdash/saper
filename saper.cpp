@@ -1,13 +1,17 @@
 ﻿#include <iostream>
 #include <vector>
 #include <SDL.h>
+
+#define window_width = 600
 using namespace std;
 
 //set the variables and fields
-int width, height, num_bombs;
+int width, height, num_bombs, flags_left;
 vector<vector<int> > bombs;
 vector<vector<bool> > revealed;
 vector<vector<bool> >flags;
+
+int cell;
 
 
 //check for bounds
@@ -43,6 +47,17 @@ void reveal(int x, int y){
         reveal(x, y + 1);
     }
 
+void set_flag(int x, int y) {
+    if (!flags[y][x]) {
+        flags[y][x] = true;
+        flags_left--;
+    }
+    else {
+        flags[y][x] = 0;
+        flags_left++;
+    }
+}
+
 void handle_mouse() {
 
 }
@@ -52,6 +67,7 @@ void setup(){
     bombs[height][width];
     flags[height][width];
     revealed[height][width];
+    flags_left = num_bombs;
     for(int i =0; i< height; i++){
         for(int j = 0; j < width; j++){
             bombs[i][j] = 0;
@@ -89,10 +105,16 @@ void set_level(int level){
     }
 }
 
-void title(){
-    // set up the picture
-    // handle mouse events
-    // call other windows
+void start(){
+    SDL_Window* window;
+    SDL_Renderer* render;
+    SDL_Init(SDL_INIT_VIDEO);
+    SDL_CreateWindowAndRenderer("Saper v2.0", window_width, window_width, 0, &window, &render);
+    
+
+
+    //run the game
+    SDL_Quit();
 }
 
 void settings() {
@@ -101,8 +123,7 @@ void settings() {
 
 int main()
    {
-
-
-
+    start();
+    return 0;
    }
 
