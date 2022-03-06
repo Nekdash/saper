@@ -1,12 +1,9 @@
 ﻿  saper.cpp
-C:\Users\DARYA\Documents\GitHub\Wasp\saper\saper.cpp(73,24): warning C4834: отмена возвращаемого значения функции с атрибутом "nodiscard"
-C:\Users\DARYA\Documents\GitHub\Wasp\saper\saper.cpp(74,24): warning C4834: отмена возвращаемого значения функции с атрибутом "nodiscard"
-C:\Users\DARYA\Documents\GitHub\Wasp\saper\saper.cpp(75,27): warning C4834: отмена возвращаемого значения функции с атрибутом "nodiscard"
-C:\Users\DARYA\Documents\GitHub\Wasp\saper\saper.cpp(119,12): warning C4101: mouse: неиспользованная локальная переменная
-C:\Users\DARYA\Documents\GitHub\Wasp\saper\saper.cpp(118,12): warning C4101: y: неиспользованная локальная переменная
-C:\Users\DARYA\Documents\GitHub\Wasp\saper\saper.cpp(118,9): warning C4101: x: неиспользованная локальная переменная
-C:\Users\DARYA\Documents\GitHub\Wasp\saper\saper.cpp(32): warning C4715: count_bombs: значение возвращается не при всех путях выполнения
-SDL2main.lib(SDL_windows_main.obj) : error LNK2019: ссылка на неразрешенный внешний символ SDL_main в функции main_getcmdline.
-    Указание на символы, которые определены и могут подойти:
-      "int __cdecl SDL_main(void)" (?SDL_main@@YAHXZ)
-C:\Users\DARYA\Documents\GitHub\Wasp\saper\x64\Debug\saper.exe : fatal error LNK1120: неразрешенных внешних элементов: 1
+C:\Users\DARYA\Documents\GitHub\Wasp\saper\saper.cpp(68,24): warning C4834: отмена возвращаемого значения функции с атрибутом "nodiscard"
+C:\Users\DARYA\Documents\GitHub\Wasp\saper\saper.cpp(69,24): warning C4834: отмена возвращаемого значения функции с атрибутом "nodiscard"
+C:\Users\DARYA\Documents\GitHub\Wasp\saper\saper.cpp(70,27): warning C4834: отмена возвращаемого значения функции с атрибутом "nodiscard"
+C:\Users\DARYA\Documents\GitHub\Wasp\saper\saper.cpp(126,12): warning C4101: mouse: неиспользованная локальная переменная
+C:\Users\DARYA\Documents\GitHub\Wasp\saper\saper.cpp(125,12): warning C4101: y: неиспользованная локальная переменная
+C:\Users\DARYA\Documents\GitHub\Wasp\saper\saper.cpp(125,9): warning C4101: x: неиспользованная локальная переменная
+C:\Users\DARYA\Documents\GitHub\Wasp\saper\saper.cpp(29): warning C4715: count_bombs: значение возвращается не при всех путях выполнения
+  saper.vcxproj -> C:\Users\DARYA\Documents\GitHub\Wasp\saper\x64\Debug\saper.exe

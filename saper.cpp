@@ -1,9 +1,7 @@
 ﻿#include <iostream>
 #include <vector>
-#include "SDL2/include/SDL.h"
-
-
-using namespace std;
+#include <SDL.h>
+#include "saper.h"
 
 //set the variables and fields
 int width, height, num_bombs, flags_left;
@@ -12,8 +10,7 @@ vector<vector<bool> > revealed;
 vector<vector<bool> > flags;
 //vector<vector<int> > nums;
 int cell;
-
-
+int window_width = 600;
 
 //check for bounds
 bool bounds(int x, int y) {
@@ -67,8 +64,6 @@ void set_flag(int x, int y) {
 }
 
 
-
-
 void setup(){
     bombs[height][width];
     flags[height][width];
@@ -111,6 +106,18 @@ void set_level(int level){ // define num of bombs and field size
     }
 }
 
+bool close(SDL_Event event) {
+    SDL_PollEvent(&event);
+    int x, y;
+    SDL_GetMouseState(&x, &y);
+
+    bool cross = x < window_width - 10 && x > window_width - 60 && y > 10 && y < 60;
+
+    if (event.type == SDL_WINDOWEVENT && event.window.event == SDL_WINDOWEVENT_CLOSE) return true;
+    if (event.type == SDL_MOUSEBUTTONDOWN && cross)return true;
+    return false;
+}
+
 void start(){
     SDL_Window* window;
     SDL_Renderer* render;
@@ -118,22 +125,18 @@ void start(){
     int x, y;
     Uint32 mouse;
     
-    int window_width = 600;
+    //int window_width = 600;
 
     SDL_Init(SDL_INIT_VIDEO);
     SDL_CreateWindowAndRenderer( window_width, window_width + 100, 0, &window, &render);
-    
-    while (SDL_PollEvent(&event)) {
-        switch (event.type) {
-        case SDL_MOUSEBUTTONDOWN:
-            cout << "We got a button down!" << endl;
-            break;
-        default:
-            cout << "smth weird just happened" << endl;
-            break;
-        }
+    SDL_PollEvent(&event);
+    while (!close(event)) {
+        SDL_PollEvent(&event);
+        SDL_SetRenderDrawColor(render, 200, 200, 200, 0);
+        rect(render, window_width - 60, 10, 50, 50);
+        
     }
-    cout << "Event queue empty" << endl;
+    cout << "close worked" << endl;
     
     //run the game
     SDL_Delay(300);
@@ -148,7 +151,7 @@ void settings() {
     vector<int> levels;
 }
 
-int main()
+int main(int argc, char* argv[])
    {
     start();
     cout << "HEY!!" << endl;
