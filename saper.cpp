@@ -1,6 +1,6 @@
 ﻿#include <iostream>
 #include <vector>
-//#include <SDL.h>
+#include "SDL2/include/SDL.h"
 
 
 using namespace std;
@@ -110,7 +110,7 @@ void set_level(int level){ // define num of bombs and field size
 
     }
 }
-/*
+
 void start(){
     SDL_Window* window;
     SDL_Renderer* render;
@@ -121,7 +121,7 @@ void start(){
     int window_width = 600;
 
     SDL_Init(SDL_INIT_VIDEO);
-    SDL_CreateWindowAndRenderer( window_width, window_width, 0, &window, &render);
+    SDL_CreateWindowAndRenderer( window_width, window_width + 100, 0, &window, &render);
     
     while (SDL_PollEvent(&event)) {
         switch (event.type) {
@@ -139,7 +139,8 @@ void start(){
     SDL_Delay(300);
     SDL_Quit();
 }
-*/
+
+
 
 
 
@@ -149,7 +150,7 @@ void settings() {
 
 int main()
    {
-    //start();
+    start();
     cout << "HEY!!" << endl;
     return 0;
    }
