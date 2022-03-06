@@ -1,6 +1,6 @@
 ﻿#include <iostream>
 #include <vector>
-#include <SDL.h>
+//#include <SDL.h>
 
 
 using namespace std;
@@ -9,11 +9,11 @@ using namespace std;
 int width, height, num_bombs, flags_left;
 vector<vector<int> > bombs;
 vector<vector<bool> > revealed;
-vector<vector<bool> >flags;
-
+vector<vector<bool> > flags;
+//vector<vector<int> > nums;
 int cell;
 
-void start();
+
 
 //check for bounds
 bool bounds(int x, int y) {
@@ -31,12 +31,20 @@ int count_bombs(int x, int y) {
     }
 }
 
+void draw_num(int x ,int y) {
+    // calculate cell coordinates;
+    // draw png of number there
+}
+
 void reveal(int x, int y) {
     if (bounds( x, y)) return;
     if (revealed[y][x]) return;
     revealed[x][y] = true;
     if (bombs[x][y] == 1) return;
-    if (count_bombs( x, y) != 0) return;
+    if (count_bombs(x, y) != 0) {
+        //draw_num(x, y);
+        return;
+    } 
         reveal(x - 1, y - 1);
         reveal(x - 1, y + 1);
         reveal(x + 1, y - 1);
@@ -86,7 +94,7 @@ void set_bombs(){//define bombs
     }
 }
 
-void set_level(int level){
+void set_level(int level){ // define num of bombs and field size
     if(level == 0){
         num_bombs = 10;
         width = 9;
@@ -102,7 +110,7 @@ void set_level(int level){
 
     }
 }
-
+/*
 void start(){
     SDL_Window* window;
     SDL_Renderer* render;
@@ -131,7 +139,7 @@ void start(){
     SDL_Delay(300);
     SDL_Quit();
 }
-
+*/
 
 
 
@@ -141,7 +149,8 @@ void settings() {
 
 int main()
    {
-    start();
+    //start();
+    cout << "HEY!!" << endl;
     return 0;
    }
 
