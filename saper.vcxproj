@@ -143,6 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="buttons.cpp" />
     <ClCompile Include="draw.cpp" />
     <ClCompile Include="saper.cpp" />
     <ClCompile Include="scenes.cpp" />
