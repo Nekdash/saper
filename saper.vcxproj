@@ -145,6 +145,7 @@
   <ItemGroup>
     <ClCompile Include="draw.cpp" />
     <ClCompile Include="saper.cpp" />
+    <ClCompile Include="scenes.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="saper.h" />

@@ -1,9 +1,11 @@
-﻿  saper.cpp
-C:\Users\DARYA\Documents\GitHub\Wasp\saper\saper.cpp(68,24): warning C4834: отмена возвращаемого значения функции с атрибутом "nodiscard"
+﻿  draw.cpp
+  saper.cpp
 C:\Users\DARYA\Documents\GitHub\Wasp\saper\saper.cpp(69,24): warning C4834: отмена возвращаемого значения функции с атрибутом "nodiscard"
-C:\Users\DARYA\Documents\GitHub\Wasp\saper\saper.cpp(70,27): warning C4834: отмена возвращаемого значения функции с атрибутом "nodiscard"
-C:\Users\DARYA\Documents\GitHub\Wasp\saper\saper.cpp(126,12): warning C4101: mouse: неиспользованная локальная переменная
-C:\Users\DARYA\Documents\GitHub\Wasp\saper\saper.cpp(125,12): warning C4101: y: неиспользованная локальная переменная
-C:\Users\DARYA\Documents\GitHub\Wasp\saper\saper.cpp(125,9): warning C4101: x: неиспользованная локальная переменная
-C:\Users\DARYA\Documents\GitHub\Wasp\saper\saper.cpp(29): warning C4715: count_bombs: значение возвращается не при всех путях выполнения
+C:\Users\DARYA\Documents\GitHub\Wasp\saper\saper.cpp(70,24): warning C4834: отмена возвращаемого значения функции с атрибутом "nodiscard"
+C:\Users\DARYA\Documents\GitHub\Wasp\saper\saper.cpp(71,27): warning C4834: отмена возвращаемого значения функции с атрибутом "nodiscard"
+  scenes.cpp
+C:\Users\DARYA\Documents\GitHub\Wasp\saper\scenes.cpp(51,19): warning C4834: отмена возвращаемого значения функции с атрибутом "nodiscard"
+C:\Users\DARYA\Documents\GitHub\Wasp\saper\scenes.cpp(29,12): warning C4101: mouse: неиспользованная локальная переменная
+  Создание кода...
+C:\Users\DARYA\Documents\GitHub\Wasp\saper\saper.cpp(30): warning C4715: count_bombs: значение возвращается не при всех путях выполнения
   saper.vcxproj -> C:\Users\DARYA\Documents\GitHub\Wasp\saper\x64\Debug\saper.exe
