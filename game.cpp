@@ -77,7 +77,7 @@ void game(SDL_Window* window, SDL_Renderer* render, SDL_Event event, int level) 
                     }
                 }
                 rect(render, x1 * cell, 100 + y1 * cell, cell, cell);
-                //cout << "near = " << near << endl;
+                
                 if (near != 0 && revealed[y][x]) {
 
                     if (near == 1)set_color(render, "bl");
