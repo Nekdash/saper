@@ -1,22 +1,95 @@
 #include "saper.h"
 
-
-
-void play(SDL_Window* window, SDL_Renderer* render, SDL_Event event) {
-	cout << "play scene started" << endl;
+void rules(SDL_Window* window, SDL_Renderer* render, SDL_Event event, int level) {
+    cout << "rules started" << endl;
+    int x = 0, y = 0;
+    set_color(render, "g");
     SDL_RenderClear(render);
-    rect(render, 150, 300, 100, 300, "lg");
-    rect(render, 100, 300, 100, 50, "r");
-    rect(render, 450, 300, 100, 50, "r");
+    rect(render, 150, 600, 75, 300, "lg");
+    rect(render, 540, 10, 50, 50, "lg");
     SDL_RenderPresent(render);
     while (1) {
-        if (close(event))start(window, render ,event);
+        SDL_PollEvent(&event);
+
+        if (SDL_PollEvent(&event) && event.type == SDL_MOUSEBUTTONDOWN) {
+            SDL_GetMouseState(&x, &y);
+            if (x > 150 && x < 450 && y > 600 && y < 675) {
+                game(window, render, event, level);
+                break;
+            }
+            if (x < 600 - 10 && x > 600 - 60 && y > 10 && y < 60) { // cross button - break to play scene -> break to start scene
+                break;
+            }
+        }
         if (SDL_PollEvent(&event) && event.type == SDL_QUIT) {
             SDL_DestroyRenderer(render);
             SDL_DestroyWindow(window);
             SDL_Quit();
+            cout << "rules scene destroyed WINDWOW CLOSURE" << endl;
+            break;
         }
     }
+
+
+}
+
+
+void play(SDL_Window* window, SDL_Renderer* render, SDL_Event event) {
+    int x = 0, y = 0;
+    int level = 0;
+    set_color(render, "g");
+	cout << "play scene started" << endl;
+    SDL_RenderClear(render);
+
+    rect(render, 540, 10, 50, 50, "lg"); // back to start button
+
+    rect(render, 150, 150, 100, 300, "lg"); // easy mode
+
+    rect(render, 150, 300, 100, 300, "lg"); // medium mode
+
+    rect(render, 150, 450, 100, 300, "lg"); // hard mode
+
+    SDL_RenderPresent(render);
+    while (1) {
+        SDL_PollEvent(&event);
+        
+        if (SDL_PollEvent(&event) && event.type == SDL_MOUSEBUTTONDOWN) {
+            SDL_GetMouseState(&x, &y);
+            if (x > 150 && x < 600 - 150 && y > 150 && y < 250){ // easy button
+                cout << "easy button" << endl;
+                level = 0;
+                rules(window, render ,event, 0);
+                break;
+            } 
+            if (x > 150 && x < 600 - 150 && y > 300 && y < 400){ // medium button
+                cout << "medium button" << endl;
+                level = 1;
+                rules(window, render, event, 1);
+                break;
+            } 
+            if (x > 150 && x < 600 - 150 && y > 450 && y < 550){ // hard button
+                cout << "hard button" << endl;
+                level = 2;
+                rules(window, render, event, 2);
+                break;
+            } 
+            if (x < 600 - 10 && x > 600 - 60 && y > 10 && y < 60){
+                cout << "play scene cross button" << endl;
+                
+                break;
+            } 
+        }
+
+        if (SDL_PollEvent(&event) && event.type == SDL_QUIT) {
+            SDL_DestroyRenderer(render);
+            SDL_DestroyWindow(window);
+            SDL_Quit();
+            cout << "play scene destroyed WINDWOW CLOSURE" << endl;
+            
+            break;
+        }
+    }
+    
 }
 
 
@@ -24,41 +97,60 @@ void play(SDL_Window* window, SDL_Renderer* render, SDL_Event event) {
 
 void start(SDL_Window* window, SDL_Renderer* render, SDL_Event event) {
     int window_width = 600;
-    //int window_width = 600;
-    SDL_PollEvent(&event);
-    SDL_RenderClear(render);
+    int x = 0, y = 0;
+    bool exit = true;
+    while (exit) {
+        cout << "start scene started (pun intended)" << endl;
+        set_color(render, "lg");
+        
+        //int window_width = 600;
+        SDL_PollEvent(&event);
+        SDL_RenderClear(render);
 
-    SDL_SetRenderDrawColor(render, 200, 200, 200, 0);
-    rect(render, window_width - 60, 10, 50, 50);
+        SDL_SetRenderDrawColor(render, 200, 200, 200, 0);
 
-    rect(render, 150, 400, 75, window_width - 300, "g"); // play button
-   
+        rect(render, window_width - 60, 10, 50, 50, "g"); // cross button
 
-    SDL_RenderPresent(render);
+        rect(render, 150, 400, 75, window_width - 300, "g"); // play button
 
-    string scene = "null";
 
-    while (1) {
-        if (SDL_PollEvent(&event) && event.type == SDL_QUIT)
-            break;
-        if (close(event)) {
-            scene == "close";
-            break;
+        SDL_RenderPresent(render);
+
+        while (1) {
+            SDL_PollEvent(&event);
+            if (SDL_PollEvent(&event) && event.type == SDL_MOUSEBUTTONDOWN) {
+                SDL_GetMouseState(&x, &y);
+
+                if (x < 600 - 10 && x > 600 - 60 && y > 10 && y < 60) { // cross button
+                    cout << "start scene cross button" << endl;
+                    exit = false;
+                    break;
+                }
+                if (x < 600 - 150 && x > 150 && y > 400 && y < 475) { // play button
+                    play(window, render, event);
+                    break;
+                }
+            }
+
+
+            if (SDL_PollEvent(&event) && event.type == SDL_QUIT) {
+                exit = false;
+                break;
+            }
+
         }
-        if (play_button(event)) {
-            scene = "play";
-            break;
-        }
+
+        
+
         
     }
-    if (scene == "play") play(window, render, event);
-    
-    if (scene == "close") {
-        SDL_DestroyRenderer(render);
-        SDL_DestroyWindow(window);
-        SDL_Quit();
-    }
+    SDL_DestroyRenderer(render);
+    SDL_DestroyWindow(window);
+    SDL_Quit();
+    cout << "start scene destroyed" << endl;
+    return;
 
+    
 }
 
 

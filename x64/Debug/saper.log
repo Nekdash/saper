@@ -1,11 +1,8 @@
-﻿  draw.cpp
+﻿  buttons.cpp
+  draw.cpp
+  game.cpp
   saper.cpp
-C:\Users\DARYA\Documents\GitHub\Wasp\saper\saper.cpp(69,24): warning C4834: отмена возвращаемого значения функции с атрибутом "nodiscard"
-C:\Users\DARYA\Documents\GitHub\Wasp\saper\saper.cpp(70,24): warning C4834: отмена возвращаемого значения функции с атрибутом "nodiscard"
-C:\Users\DARYA\Documents\GitHub\Wasp\saper\saper.cpp(71,27): warning C4834: отмена возвращаемого значения функции с атрибутом "nodiscard"
   scenes.cpp
-C:\Users\DARYA\Documents\GitHub\Wasp\saper\scenes.cpp(51,19): warning C4834: отмена возвращаемого значения функции с атрибутом "nodiscard"
-C:\Users\DARYA\Documents\GitHub\Wasp\saper\scenes.cpp(29,12): warning C4101: mouse: неиспользованная локальная переменная
   Создание кода...
 C:\Users\DARYA\Documents\GitHub\Wasp\saper\saper.cpp(30): warning C4715: count_bombs: значение возвращается не при всех путях выполнения
   saper.vcxproj -> C:\Users\DARYA\Documents\GitHub\Wasp\saper\x64\Debug\saper.exe

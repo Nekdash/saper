@@ -19,38 +19,54 @@ bool bounds(int x, int y) {
 }
 
 
-int count_bombs(int x, int y) {
+int count_bombs(int x, int y, vector<vector <int> > &bombs) {
     int r = 0;
     for (int i = -1; i <= 1; i++) {
         for (int j = -1; j <= 1; j++) {
-            if (!bounds(x + i, j + i)) r += bombs[i + x][j + y];
+            if (!bounds(x + i, j + i)) r += bombs[i + y][j + x];
         }
         return r;
     }
 }
 
-void draw_num(int x ,int y) {
-    // calculate cell coordinates;
-    // draw png of number there
+void clear_bombs(int width, int height, vector<vector<int> >& bombs) {
+    for (int y = 0; y < height; y++) {
+        for (int x = 0; x < width; x++) {
+            bombs[y][x] = 0;
+        }
+    }
 }
 
-void reveal(int x, int y) {
+void set_bombs(int& num_bombs, int width, int height, vector<vector<int> >& bombs) {//define bombs
+    int i = 0, x, y;
+    while (i < num_bombs) {
+        x = rand() % width;
+        y = rand() % height;
+        if (bombs[y][x] != 1)
+        {
+            bombs[y][x] = 1;
+            i++;
+        }
+    }
+}
+
+void reveal(int x, int y, vector<vector<bool> > &revealed, vector<vector<int> > &bombs) {
     if (bounds( x, y)) return;
     if (revealed[y][x]) return;
-    revealed[x][y] = true;
-    if (bombs[x][y] == 1) return;
-    if (count_bombs(x, y) != 0) {
+    revealed[y][x] = true;
+    if (bombs[y][x] == 1) return;
+    if (count_bombs(x, y, bombs) != 0) {
         //draw_num(x, y);
         return;
     } 
-        reveal(x - 1, y - 1);
-        reveal(x - 1, y + 1);
-        reveal(x + 1, y - 1);
-        reveal(x + 1, y + 1);
-        reveal(x - 1, y);
-        reveal(x + 1, y);
-        reveal(x, y - 1);
-        reveal(x, y + 1);
+        reveal(x - 1, y - 1, revealed, bombs);
+        reveal(x - 1, y + 1, revealed, bombs);
+        reveal(x + 1, y - 1, revealed, bombs);
+        reveal(x + 1, y + 1, revealed, bombs);
+        reveal(x - 1, y, revealed, bombs);
+        reveal(x + 1, y, revealed, bombs);
+        reveal(x, y - 1, revealed, bombs);
+        reveal(x, y + 1, revealed, bombs);
 }
 
 void set_flag(int x, int y) {
@@ -65,13 +81,31 @@ void set_flag(int x, int y) {
 }
 
 
-void setup(){
-    bombs[height][width];
-    flags[height][width];
-    revealed[height][width];
-    flags_left = num_bombs;
-    for(int i =0; i< height; i++){
-        for(int j = 0; j < width; j++){
+void set_level(int level, int& width, int& height, int& num_bombs, int& cell) { // define num of bombs and field size, set the vector size
+    if (level == 0) {
+        num_bombs = 10;
+        width = 9;
+        height = 9;
+        cell = 66;
+    }
+    else if (level == 1) {
+        num_bombs = 40;
+        width = 16;
+        height = 16;
+        cell = 37;
+    }
+    else if (level == 2) {
+        num_bombs = 99;
+        width = 22;
+        height = 22;
+        cell = 27;
+    }
+
+}
+
+void setup(vector<vector<int> >& bombs, vector<vector<bool> >& revealed, vector<vector<bool> >& flags, const int& width, const int& height) {
+    for (int i = 0; i < height; i++) {
+        for (int j = 0; j < width; j++) {
             bombs[i][j] = 0;
             flags[i][j] = false;
             revealed[i][j] = false;
@@ -79,44 +113,5 @@ void setup(){
     }
 }
 
-void set_bombs(){//define bombs
-    int i =0, x, y;
-    while(i < num_bombs){
-        x = rand()% width;
-        y = rand() % height;
-        if(bombs[y][x] != 1)
-        {bombs[x][y] = 1;
-        i++;}
-    }
-}
-
-void set_level(int level){ // define num of bombs and field size
-    if(level == 0){
-        num_bombs = 10;
-        width = 9;
-        height = 9;
-    }else if(level == 1){
-        num_bombs = 40;
-        width = 16;
-        height = 16;
-    }else if(level == 2){
-        num_bombs = 99;
-        width = 22;
-        height = 22;
-
-    }
-}
-
-
-
-
-
-
-
-
-
-void settings() {
-    vector<int> levels;
-}
 
 
