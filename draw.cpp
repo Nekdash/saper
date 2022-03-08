@@ -9,7 +9,7 @@ void set_color(SDL_Renderer* render, string color) {
     if (color == "red" || color == "r") SDL_SetRenderDrawColor(render, 255, 0, 0, 0);
     if (color == "blue" || color == "bl") SDL_SetRenderDrawColor(render, 0, 0, 255, 0);
     if (color == "green" || color == "gn") SDL_SetRenderDrawColor(render, 0, 255, 0, 0);
-    if (color == "dark blue" || color == "db") SDL_SetRenderDrawColor(render, 0, 0, 0, 150);
+    if (color == "dark blue" || color == "db") SDL_SetRenderDrawColor(render, 0, 0, 150, 0);
     if (color == "dark red" || color == "dr") SDL_SetRenderDrawColor(render, 0, 150, 0, 0);
 
 }

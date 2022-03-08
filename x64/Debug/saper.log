@@ -1,8 +1,6 @@
-﻿  buttons.cpp
-  draw.cpp
-  game.cpp
-  saper.cpp
+﻿  saper.cpp
   scenes.cpp
   Создание кода...
-C:\Users\DARYA\Documents\GitHub\Wasp\saper\saper.cpp(30): warning C4715: count_bombs: значение возвращается не при всех путях выполнения
+C:\Users\DARYA\Documents\GitHub\Wasp\saper\saper.cpp(21): warning C4715: count_bombs: значение возвращается не при всех путях выполнения
+  LINK : не найден или не выполнена сборка C:\Users\DARYA\Documents\GitHub\Wasp\saper\x64\Debug\saper.exe при последней инкрементной компоновке; выполняется полная компоновка
   saper.vcxproj -> C:\Users\DARYA\Documents\GitHub\Wasp\saper\x64\Debug\saper.exe

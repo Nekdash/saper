@@ -23,7 +23,8 @@ void setup(vector<vector<int> >& bombs, vector<vector<bool> >& revealed, vector<
 void set_flag(int x, int y);
 void reveal(int x, int y, vector<vector<bool> >& revealed, vector<vector<int> >& bombs);
 int count_bombs(int x, int y, vector<vector <int> >& bombs);
-bool bounds(int x, int y);
+bool bounds(int x, int y, vector<vector <int> >& bombs);
+
 
 //scenes.cpp
 //main is here as well

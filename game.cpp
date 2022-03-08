@@ -57,7 +57,7 @@ void game(SDL_Window* window, SDL_Renderer* render, SDL_Event event, int level) 
                 
                
                 if ((x1 + y1) % 2 == 0) {
-                    set_color(render, "lg");
+                    set_color(render, "dg");
                     if (flags[y1][x1]) {
                         set_color(render, "r");
                         
@@ -73,7 +73,7 @@ void game(SDL_Window* window, SDL_Renderer* render, SDL_Event event, int level) 
                         set_color(render, "dr");
                     }
                     else if (revealed[y1][x1]) {
-                        set_color(render, "dr");
+                        set_color(render, "dg");
                     }
                 }
                 rect(render, x1 * cell, 100 + y1 * cell, cell, cell);

@@ -4,17 +4,8 @@
 #include "saper.h"
 #include "SDL2/include/SDL.h"
 
-//set the variables and fields
-int width, height, num_bombs, flags_left;
-vector<vector<int> > bombs;
-vector<vector<bool> > revealed;
-vector<vector<bool> > flags;
-//vector<vector<int> > nums;
-int cell;
-//extern int window_width;
 
-//check for bounds
-bool bounds(int x, int y) {
+bool bounds(int x, int y, vector<vector <int> >& bombs) {
     return x < 0 || y < 0 || y >= bombs.size() || x >= bombs[0].size();
 }
 
@@ -23,7 +14,7 @@ int count_bombs(int x, int y, vector<vector <int> > &bombs) {
     int r = 0;
     for (int i = -1; i <= 1; i++) {
         for (int j = -1; j <= 1; j++) {
-            if (!bounds(x + i, j + i)) r += bombs[i + y][j + x];
+            if (!bounds(x + j, i + y, bombs)) r += bombs[i + y][j + x];
         }
         return r;
     }
@@ -51,14 +42,13 @@ void set_bombs(int& num_bombs, int width, int height, vector<vector<int> >& bomb
 }
 
 void reveal(int x, int y, vector<vector<bool> > &revealed, vector<vector<int> > &bombs) {
-    if (bounds( x, y)) return;
+    if (bounds( x, y, bombs)) return;
     if (revealed[y][x]) return;
+    cout << "revealing :  " << x << " " << y << endl;
     revealed[y][x] = true;
     if (bombs[y][x] == 1) return;
     if (count_bombs(x, y, bombs) != 0) {
-        //draw_num(x, y);
-        return;
-    } 
+
         reveal(x - 1, y - 1, revealed, bombs);
         reveal(x - 1, y + 1, revealed, bombs);
         reveal(x + 1, y - 1, revealed, bombs);
@@ -67,8 +57,9 @@ void reveal(int x, int y, vector<vector<bool> > &revealed, vector<vector<int> > 
         reveal(x + 1, y, revealed, bombs);
         reveal(x, y - 1, revealed, bombs);
         reveal(x, y + 1, revealed, bombs);
+    }
 }
-
+/*
 void set_flag(int x, int y) {
     if (!flags[y][x]) {
         flags[y][x] = true;
@@ -79,7 +70,7 @@ void set_flag(int x, int y) {
         flags_left++;
     }
 }
-
+*/
 
 void set_level(int level, int& width, int& height, int& num_bombs, int& cell) { // define num of bombs and field size, set the vector size
     if (level == 0) {
