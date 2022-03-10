@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 #include <vector>
-#include <SDL.h>
+#include "SDL2/include/SDL.h"
 #include "saper.h"
 
 using namespace std;
@@ -41,3 +41,6 @@ bool close(int x, int y);
 //game.cpp
 
 void game(SDL_Window* window, SDL_Renderer* render, SDL_Event event, int level);
+
+//tempt.cpp
+void draw_bomb(SDL_Renderer* render, int x, int y, int cell);
