@@ -40,7 +40,7 @@ bool close(int x, int y);
 
 //game.cpp
 
-void game(SDL_Window* window, SDL_Renderer* render, SDL_Event event, int level);
+bool game(SDL_Window* window, SDL_Renderer* render, SDL_Event event, int level);
 
 //tempt.cpp
 void draw_bomb(SDL_Renderer* render, int x, int y, int cell);

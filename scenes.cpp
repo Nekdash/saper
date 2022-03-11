@@ -14,7 +14,10 @@ void rules(SDL_Window* window, SDL_Renderer* render, SDL_Event event, int level)
         if (SDL_PollEvent(&event) && event.type == SDL_MOUSEBUTTONDOWN) {
             SDL_GetMouseState(&x, &y);
             if (x > 150 && x < 450 && y > 600 && y < 675) {
-                game(window, render, event, level);
+                bool b = true;
+                while (b) {
+                    b = game(window, render, event, level);
+                }
                 break;
             }
             if (x < 600 - 10 && x > 600 - 60 && y > 10 && y < 60) { // cross button - break to play scene -> break to start scene
@@ -127,7 +130,7 @@ void start(SDL_Window* window, SDL_Renderer* render, SDL_Event event) {
                     break;
                 }
                 if (x < 600 - 150 && x > 150 && y > 400 && y < 475) { // play button
-                    play(window, render, event);
+                     play(window, render, event);
                     break;
                 }
             }

@@ -1,8 +1,8 @@
 #include "saper.h"
 
 void set_color(SDL_Renderer* render, string color) {
-    if (color == "grey" || color == "g")SDL_SetRenderDrawColor(render, 150, 150, 150, 0);
-    if (color == "light grey" || color == "lg") SDL_SetRenderDrawColor(render, 200, 200, 200, 0);
+    if (color == "grey" || color == "g")SDL_SetRenderDrawColor(render, 170, 170, 170, 0);
+    if (color == "light grey" || color == "lg") SDL_SetRenderDrawColor(render, 210, 210, 210, 0);
     if (color == "dark grey" || color == "dg")SDL_SetRenderDrawColor(render, 100, 100, 100, 0);
     if (color == "black" || color == "b") SDL_SetRenderDrawColor(render, 0, 0, 0, 0);
     if (color == "white" || color == "w") SDL_SetRenderDrawColor(render, 255, 255, 255, 0);

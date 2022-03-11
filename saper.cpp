@@ -14,10 +14,14 @@ int count_bombs(int x, int y, vector<vector <int> > &bombs) {
     int r = 0;
     for (int i = -1; i <= 1; i++) {
         for (int j = -1; j <= 1; j++) {
-            if (!bounds(x + j, i + y, bombs)) r += bombs[i + y][j + x];
+            if (bombs[y][x] == 0) {
+                if (!bounds(x + j, y + i, bombs)) r += bombs[y + i][x + j];
+            }
+            
         }
-        return r;
+        
     }
+    return r;
 }
 
 void clear_bombs(int width, int height, vector<vector<int> >& bombs) {
@@ -43,11 +47,12 @@ void set_bombs(int& num_bombs, int width, int height, vector<vector<int> >& bomb
 
 void reveal(int x, int y, vector<vector<bool> > &revealed, vector<vector<int> > &bombs) {
     if (bounds( x, y, bombs)) return;
+    if (bombs[y][x] == 1) return;
     if (revealed[y][x]) return;
     cout << "revealing :  " << x << " " << y << endl;
     revealed[y][x] = true;
-    if (bombs[y][x] == 1) return;
-    if (count_bombs(x, y, bombs) != 0) {
+    
+    if (count_bombs(x, y, bombs) == 0) {
 
         reveal(x - 1, y - 1, revealed, bombs);
         reveal(x - 1, y + 1, revealed, bombs);

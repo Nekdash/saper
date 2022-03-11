@@ -23,7 +23,7 @@ void print_field_b(vector<vector<bool> >& bombs) {
 
 
 
-void game(SDL_Window* window, SDL_Renderer* render, SDL_Event event, int level) {
+bool game(SDL_Window* window, SDL_Renderer* render, SDL_Event event, int level) {
     cout << "game started" << endl;
 	int width, height, num_bombs, flags_left, cell;
     set_level(level, width, height, num_bombs, cell);
@@ -56,7 +56,6 @@ void game(SDL_Window* window, SDL_Renderer* render, SDL_Event event, int level) 
                 near = count_bombs(x1, y1, bombs);
                 set_color(render, "g");
                 
-               
                 if ((x1 + y1) % 2 == 0) {
                     set_color(render, "g");
                     if (flags[y1][x1]) {
@@ -65,7 +64,6 @@ void game(SDL_Window* window, SDL_Renderer* render, SDL_Event event, int level) 
                     }
                     else if (revealed[y1][x1]) {
                         set_color(render, "ddg");
-                        
                     }
                 }
                 else {
@@ -81,7 +79,7 @@ void game(SDL_Window* window, SDL_Renderer* render, SDL_Event event, int level) 
                 
                 if (near != 0 && revealed[y][x]) {
 
-                    if (near == 1)set_color(render, "bl");
+                    if (near == 1) set_color(render, "bl");
                     if (near == 2) set_color(render, "gn");
                     if (near == 3) set_color(render, "r");
                     if (near == 4) set_color(render, "db");
@@ -102,7 +100,11 @@ void game(SDL_Window* window, SDL_Renderer* render, SDL_Event event, int level) 
                 SDL_GetMouseState(&x, &y);
                 if (x < 600 - 10 && x > 600 - 60 && y > 10 && y < 60) {
                     exit_b = false;
-                    break;
+                    return false;
+                    
+                }
+                if (x < 530 && x > 480 && y > 10 && y < 60) {
+                    return true;
                 }
                 if (y > 100) {
                     cout << "smth detected in the field" << endl;
@@ -133,8 +135,12 @@ void game(SDL_Window* window, SDL_Renderer* render, SDL_Event event, int level) 
                         }
                     }
                     else {
+                        if (!revealed[y][x]) {
+                            flags[y][x] = !flags[y][x];
+                            if (flags[y][x] == 1) flags_left--;
+                            else flags_left++;
+                        }
                         
-                        flags[y][x] = !flags[y][x];
                         break;
                     }
                 }
@@ -176,7 +182,6 @@ void game(SDL_Window* window, SDL_Renderer* render, SDL_Event event, int level) 
                 rect(render, x1 * cell, 100 + y1 * cell, cell, cell);
 
                 if (near != 0 && revealed[y][x]) {
-
                     if (near == 1)set_color(render, "bl");
                     if (near == 2) set_color(render, "gn");
                     if (near == 3) set_color(render, "r");
@@ -185,25 +190,31 @@ void game(SDL_Window* window, SDL_Renderer* render, SDL_Event event, int level) 
                     if (near == 6) set_color(render, "t");
                     if (near == 7) set_color(render, "b");
                     if (near == 8) set_color(render, "b");
+                }
 
                     if (bombs[y][x] == 1) {
                         draw_bomb(render, x1 * cell, 100 + y1 * cell, cell);
                     }
-                }
-            }
-        }
-        SDL_RenderPresent(render);
-
-        while (1) {
-            cout << "entered the escape/restart stage" << endl;
-            if (event.button.button == SDL_BUTTON_LEFT) {
-                if (x < 600 - 10 && x > 600 - 60 && y > 10 && y < 60) {
-                    exit_b = false;
-                    break;
-                }
                 
             }
         }
+        SDL_RenderPresent(render);
+        cout << "entered the escape/restart stage" << endl;
+
+        while (1) {
+            if (SDL_PollEvent(&event) && event.type == SDL_MOUSEBUTTONDOWN) {
+
+                SDL_GetMouseState(&x, &y);
+                if (event.button.button == SDL_BUTTON_LEFT) {
+                    if (x < 600 - 10 && x > 600 - 60 && y > 10 && y < 60) { // cross button
+                        return false;
+                    }
+                    if (x < 530 && x > 480 && y > 10 && y < 60) { // restart button
+                        return true;
+                    }
+                }
+            }
+        }
     }
-        
+    return false;
 }

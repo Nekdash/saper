@@ -6,7 +6,7 @@ void draw_bomb(SDL_Renderer* render, int x, int y, int cell) {
     cout << "entered draw bamb" << endl;
 	set_color(render, "black");
     DrawCircle(render, x + cell / 2, y + cell / 2, cell / 2 - 3);
-
+   
 }
 
 
