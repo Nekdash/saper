@@ -1,1 +1,3 @@
 C:\Users\DARYA\Documents\GitHub\Wasp\saper\x64\Debug\saper.exe
+C:\Users\uchenik\Desktop\saper-main\x64\Debug\saper.exe
+C:\Users\uchenik\Desktop\saper-main\x64\Debug\saper.pdb
