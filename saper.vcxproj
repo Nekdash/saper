@@ -145,6 +145,7 @@
   <ItemGroup>
     <ClCompile Include="buttons.cpp" />
     <ClCompile Include="draw.cpp" />
+    <ClCompile Include="draw2.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="saper.cpp" />
     <ClCompile Include="scenes.cpp" />

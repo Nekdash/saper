@@ -64,20 +64,8 @@ void reveal(int x, int y, vector<vector<bool> > &revealed, vector<vector<int> > 
         reveal(x, y + 1, revealed, bombs);
     }
 }
-/*
-void set_flag(int x, int y) {
-    if (!flags[y][x]) {
-        flags[y][x] = true;
-        flags_left--;
-    }
-    else {
-        flags[y][x] = 0;
-        flags_left++;
-    }
-}
-*/
 
-void set_level(int level, int& width, int& height, int& num_bombs, int& cell) { // define num of bombs and field size, set the vector size
+void set_level(int level, int& width, int& height, int& num_bombs, int& cell, int& flags_left) { // define num of bombs and field size, set the vector size
     if (level == 0) {
         num_bombs = 10;
         width = 9;
@@ -96,7 +84,7 @@ void set_level(int level, int& width, int& height, int& num_bombs, int& cell) { 
         height = 22;
         cell = 27;
     }
-
+    flags_left = num_bombs;
 }
 
 void setup(vector<vector<int> >& bombs, vector<vector<bool> >& revealed, vector<vector<bool> >& flags, const int& width, const int& height) {
