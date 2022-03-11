@@ -78,8 +78,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\SDL2-2.0.20\include;C:\Users\DARYA\Documents\GitHub\Wasp\saper\SDL2\include;C:\SDL2-2.0.20\i686-w64-mingw32\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\SDL2-2.0.20\lib\x64;C:\Users\DARYA\Documents\GitHub\Wasp\saper\SDL2\lib\x64;C:\SDL2-2.0.20\i686-w64-mingw32\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\uchenik\Desktop\saper-main\SDL2\include;C:\SDL2-2.0.20\include;C:\Users\DARYA\Documents\GitHub\Wasp\saper\SDL2\include;C:\SDL2-2.0.20\i686-w64-mingw32\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\uchenik\Desktop\saper-main\SDL2\lib\x64;C:\SDL2-2.0.20\lib\x64;C:\Users\DARYA\Documents\GitHub\Wasp\saper\SDL2\lib\x64;C:\SDL2-2.0.20\i686-w64-mingw32\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
