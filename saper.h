@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include "SDL2/include/SDL.h"
+#include "SDL2_image-2.0.5/include/SDL_image.h"
 #include "saper.h"
 
 using namespace std;

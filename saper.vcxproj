@@ -78,8 +78,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\uchenik\Desktop\saper-main\SDL2\include;C:\SDL2-2.0.20\include;C:\Users\DARYA\Documents\GitHub\Wasp\saper\SDL2\include;C:\SDL2-2.0.20\i686-w64-mingw32\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\uchenik\Desktop\saper-main\SDL2\lib\x64;C:\SDL2-2.0.20\lib\x64;C:\Users\DARYA\Documents\GitHub\Wasp\saper\SDL2\lib\x64;C:\SDL2-2.0.20\i686-w64-mingw32\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\DARYA\Documents\GitHub\Wasp\saper\SDL2_image-2.0.5\include;C:\Users\uchenik\Desktop\saper-main\SDL2\include;C:\SDL2-2.0.20\include;C:\Users\DARYA\Documents\GitHub\Wasp\saper\SDL2\include;C:\SDL2-2.0.20\i686-w64-mingw32\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\DARYA\Documents\GitHub\Wasp\saper\SDL2_image-2.0.5\lib\x64;C:\Users\uchenik\Desktop\saper-main\SDL2\lib\x64;C:\SDL2-2.0.20\lib\x64;C:\Users\DARYA\Documents\GitHub\Wasp\saper\SDL2\lib\x64;C:\SDL2-2.0.20\i686-w64-mingw32\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -147,12 +147,16 @@
     <ClCompile Include="draw.cpp" />
     <ClCompile Include="draw2.cpp" />
     <ClCompile Include="game.cpp" />
+    <ClCompile Include="pics.cpp" />
     <ClCompile Include="saper.cpp" />
     <ClCompile Include="scenes.cpp" />
     <ClCompile Include="tempt.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="saper.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\..\Desktop\saper1.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

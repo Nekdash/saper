@@ -115,6 +115,7 @@ int main(int argc, char* argv[])
     SDL_Event event;
 
     SDL_Init(SDL_INIT_VIDEO);
+    
     SDL_CreateWindowAndRenderer(600, 700, 0, &window, &render);
     SDL_SetRenderDrawColor(render, 255, 255, 255, 0);
     SDL_PollEvent(&event);
