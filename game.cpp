@@ -48,7 +48,7 @@ bool game(SDL_Window* window, SDL_Renderer* render, SDL_Event event, int level) 
                 
                 if (near != 0 && revealed[y1][x1]) {
 
-                    if (near == 1) set_color(render, "bl");
+                    if (near == 1) one(render, window, x1 * cell, 100 + y1 * cell, cell);
                     if (near == 2) set_color(render, "gn");
                     if (near == 3) set_color(render, "r");
                     if (near == 4) set_color(render, "db");
