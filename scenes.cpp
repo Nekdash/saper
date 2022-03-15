@@ -120,15 +120,8 @@ int main(int argc, char* argv[])
     SDL_SetRenderDrawColor(render, 255, 255, 255, 0);
     SDL_PollEvent(&event);
 
-    int flags = IMG_INIT_JPG | IMG_INIT_PNG;
-    int initted = IMG_Init(flags);
-    if ((initted & flags) != flags) {
-        cout << "trouble!!" << IMG_GetError() << endl;
-    }
-    one(render, window, 0, 0, 27);
-    SDL_RenderPresent(render);
-    SDL_Delay(300);
+    
 
-    //start(window, render, event);
+    start(window, render, event);
     return 0;
 }

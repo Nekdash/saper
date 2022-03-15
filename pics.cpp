@@ -25,5 +25,5 @@ void one(SDL_Renderer* render, SDL_Window* window, int x, int y, int cell) {
 	SDL_BlitScaled(one, NULL, scr, &bg_one);
 	SDL_RenderPresent(render);
 	SDL_UpdateWindowSurface(window);
-	SDL_Delay(3000);
+	//SDL_Delay(3000);
 }
