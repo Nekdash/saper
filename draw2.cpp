@@ -20,3 +20,7 @@ void draw_circle(SDL_Renderer* renderer, int x, int y, int radius)
         }
     }
 }
+
+void draw_cross() {
+    
+}

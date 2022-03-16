@@ -120,8 +120,9 @@ int main(int argc, char* argv[])
     SDL_SetRenderDrawColor(render, 255, 255, 255, 0);
     SDL_PollEvent(&event);
 
-    
-
+    //one_bmp(render, window, 0, 0, 10);
+    //SDL_RenderPresent(render);
+    //SDL_Delay(3000);
     start(window, render, event);
     return 0;
 }

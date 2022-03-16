@@ -56,3 +56,4 @@ void draw_bomb(SDL_Renderer* render, int x, int y, int cell);
 
 //pics.cpp
 void one(SDL_Renderer* render, SDL_Window* window, int x, int y, int cell);
+void one_bmp(SDL_Renderer* render, SDL_Window* window, int x, int y, int cell);
