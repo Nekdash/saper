@@ -144,10 +144,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="buttons.cpp" />
+    <ClCompile Include="cutters.cpp" />
     <ClCompile Include="draw.cpp" />
-    <ClCompile Include="draw2.cpp" />
+    <ClCompile Include="draw_file.cpp" />
+    <ClCompile Include="draw_game_end.cpp" />
+    <ClCompile Include="mouse_handle.cpp" />
+    <ClCompile Include="saper2.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="pics.cpp" />
+    <ClCompile Include="pics2.cpp" />
     <ClCompile Include="saper.cpp" />
     <ClCompile Include="scenes.cpp" />
     <ClCompile Include="tempt.cpp" />
