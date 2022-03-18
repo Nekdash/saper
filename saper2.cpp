@@ -41,21 +41,22 @@ void set_bombs(int& num_bombs, int width, int height, vector<vector<int> >& bomb
     }
 }
 
-void reveal(int x, int y, vector<vector<bool> >& revealed, vector<vector<int> >& bombs) {
+void reveal(int x, int y, vector<vector<bool> >& revealed, vector<vector<int> >& bombs, vector<vector<bool> >& flags) {
     if (bounds(x, y, bombs)) return;
     if (bombs[y][x] == 1) return;
+    if (flags[y][x]) return;
     if (revealed[y][x]) return;
     //cout << "revealing :  " << x << " " << y << endl;
     revealed[y][x] = true;
 
     if (count_bombs(x, y, bombs) == 0) {
-        reveal(x - 1, y - 1, revealed, bombs);
-        reveal(x - 1, y + 1, revealed, bombs);
-        reveal(x + 1, y - 1, revealed, bombs);
-        reveal(x + 1, y + 1, revealed, bombs);
-        reveal(x - 1, y, revealed, bombs);
-        reveal(x + 1, y, revealed, bombs);
-        reveal(x, y - 1, revealed, bombs);
-        reveal(x, y + 1, revealed, bombs);
+        reveal(x - 1, y - 1, revealed, bombs, flags);
+        reveal(x - 1, y + 1, revealed, bombs, flags);
+        reveal(x + 1, y - 1, revealed, bombs, flags);
+        reveal(x + 1, y + 1, revealed, bombs, flags);
+        reveal(x - 1, y, revealed, bombs, flags);
+        reveal(x + 1, y, revealed, bombs, flags);
+        reveal(x, y - 1, revealed, bombs, flags);
+        reveal(x, y + 1, revealed, bombs, flags);
     }
 }

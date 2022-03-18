@@ -35,7 +35,7 @@ void left_click(vector<vector<int> >& bombs, vector<vector<bool> >& revealed, ve
             bang = true;
         }
         else {
-            reveal(x, y, revealed, bombs);
+            reveal(x, y, revealed, bombs, flags);
         }
     }
 }

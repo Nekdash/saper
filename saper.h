@@ -2,7 +2,7 @@
 #include <iostream>
 #include <vector>
 #include "SDL2/include/SDL.h"
-#include "SDL2_image-2.0.5/include/SDL_image.h"
+
 #include "saper.h"
 
 using namespace std;
@@ -50,7 +50,7 @@ void set_rect(SDL_Rect& bg, int h, int w, int x, int y);
 //saper2.cpp
 void clear_bombs(int width, int height, vector<vector<int> >& bombs);
 void set_bombs(int& num_bombs, int width, int height, vector<vector<int> >& bombs);
-void reveal(int x, int y, vector<vector<bool> >& revealed, vector<vector<int> >& bombs);
+void reveal(int x, int y, vector<vector<bool> >& revealed, vector<vector<int> >& bombs, vector<vector<bool> >& flags);
 int count_bombs(int x, int y, vector<vector <int> >& bombs);
 bool bounds(int x, int y, vector<vector <int> >& bombs);
 
